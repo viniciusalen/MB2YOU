@@ -25,6 +25,9 @@
 		126BCB0526F8DE400039668A /* RequestableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BCB0426F8DE400039668A /* RequestableProtocol.swift */; };
 		126BCB0826F8DF070039668A /* CoreSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BCB0726F8DF070039668A /* CoreSetting.swift */; };
 		126BCB0B26F8E2F90039668A /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BCB0A26F8E2F90039668A /* MovieDetails.swift */; };
+		12745B5C26FB6513005687DF /* SimilarMoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745B5A26FB6513005687DF /* SimilarMoviesTableViewCell.swift */; };
+		12745B5D26FB6513005687DF /* SimilarMoviesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12745B5B26FB6513005687DF /* SimilarMoviesTableViewCell.xib */; };
+		12745B5F26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745B5E26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		126BCB0426F8DE400039668A /* RequestableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestableProtocol.swift; sourceTree = "<group>"; };
 		126BCB0726F8DF070039668A /* CoreSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSetting.swift; sourceTree = "<group>"; };
 		126BCB0A26F8E2F90039668A /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		12745B5A26FB6513005687DF /* SimilarMoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMoviesTableViewCell.swift; sourceTree = "<group>"; };
+		12745B5B26FB6513005687DF /* SimilarMoviesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimilarMoviesTableViewCell.xib; sourceTree = "<group>"; };
+		12745B5E26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMoviesTableCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 		12235BE726F8BA3C00019FA7 /* DetailsView */ = {
 			isa = PBXGroup;
 			children = (
+				12745B5826FB64D1005687DF /* Components */,
 				12235BD326F8B42E00019FA7 /* DetailsViewController.swift */,
 				12235BD526F8B42E00019FA7 /* Main.storyboard */,
 				12174DA426FA2EF4009F09AE /* DetailsViewModel.swift */,
@@ -223,6 +230,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		12745B5826FB64D1005687DF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				12745B5926FB64D9005687DF /* Cell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		12745B5926FB64D9005687DF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				12745B5A26FB6513005687DF /* SimilarMoviesTableViewCell.swift */,
+				12745B5B26FB6513005687DF /* SimilarMoviesTableViewCell.xib */,
+				12745B5E26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -282,6 +307,7 @@
 			files = (
 				12235BD926F8B42F00019FA7 /* Assets.xcassets in Resources */,
 				12235BD726F8B42E00019FA7 /* Main.storyboard in Resources */,
+				12745B5D26FB6513005687DF /* SimilarMoviesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,8 +327,10 @@
 				12174DA326FA287E009F09AE /* ServiceManager.swift in Sources */,
 				12174DA126FA2340009F09AE /* NSError+Extensions.swift in Sources */,
 				126BCB0526F8DE400039668A /* RequestableProtocol.swift in Sources */,
+				12745B5C26FB6513005687DF /* SimilarMoviesTableViewCell.swift in Sources */,
 				12235BD026F8B42E00019FA7 /* AppDelegate.swift in Sources */,
 				126BCAFB26F8DD060039668A /* Endpoint+Movie.swift in Sources */,
+				12745B5F26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift in Sources */,
 				126BCB0826F8DF070039668A /* CoreSetting.swift in Sources */,
 				12174DA726FA33C4009F09AE /* UIViewController+Extensions.swift in Sources */,
 				12174D9E26FA187E009F09AE /* ResultResponse.swift in Sources */,

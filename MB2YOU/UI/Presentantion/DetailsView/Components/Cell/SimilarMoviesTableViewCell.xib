@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SimilarMoviesTableViewCell" rowHeight="123" id="KGk-i7-Jjw" customClass="SimilarMoviesTableViewCell" customModule="MB2YOU" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="123"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2NE-ZK-Scr">
+                        <rect key="frame" x="16" y="16" width="310" height="91"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sM0-Ab-1aF">
+                                <rect key="frame" x="0.0" y="3" width="64" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="0as-X0-fEa"/>
+                                    <constraint firstAttribute="height" constant="85" id="bP8-4X-FiY"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2b2-CD-HaD">
+                                <rect key="frame" x="74" y="15" width="236" height="61"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirates of the Caribbean: The Curse of the Black Pearl" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej9-RF-WBj" userLabel="Title">
+                                        <rect key="frame" x="0.0" y="0.0" width="236" height="42.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMF-qr-viI">
+                                        <rect key="frame" x="0.0" y="47.5" width="236" height="13.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nH8-mw-TjF" userLabel="Year">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="13.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="CsR-Oz-n9q"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fantasy, Drama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If3-Sx-CNN" userLabel="Genre">
+                                                <rect key="frame" x="40" y="0.0" width="196" height="13.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="2NE-ZK-Scr" secondAttribute="bottom" constant="16" id="EkZ-Vn-Uyo"/>
+                    <constraint firstItem="2NE-ZK-Scr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="QpO-Kp-B8n"/>
+                    <constraint firstItem="2NE-ZK-Scr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="aGL-wZ-hsN"/>
+                    <constraint firstAttribute="trailing" secondItem="2NE-ZK-Scr" secondAttribute="trailing" constant="16" id="n5J-Sg-0lR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="genreMovieLabel" destination="If3-Sx-CNN" id="URU-MZ-lOB"/>
+                <outlet property="imageMovie" destination="sM0-Ab-1aF" id="cnu-PM-QKj"/>
+                <outlet property="titleMovieLabel" destination="ej9-RF-WBj" id="eq6-bd-Ob3"/>
+                <outlet property="yearMovieLabel" destination="nH8-mw-TjF" id="HAH-Is-wfX"/>
+            </connections>
+            <point key="canvasLocation" x="147.82608695652175" y="141.62946428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
