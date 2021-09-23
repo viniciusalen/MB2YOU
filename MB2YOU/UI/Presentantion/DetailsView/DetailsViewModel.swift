@@ -15,7 +15,7 @@ class DetailsViewModel {
     //*************************************************
     
     private let movieService: MovieServiceProtocol
-    let movieId: String = "455"
+    let movieId: String = "550"
     
     //*************************************************
     // MARK: - Public Properties

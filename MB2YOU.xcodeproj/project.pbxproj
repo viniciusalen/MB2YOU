@@ -29,7 +29,6 @@
 		12745B5D26FB6513005687DF /* SimilarMoviesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12745B5B26FB6513005687DF /* SimilarMoviesTableViewCell.xib */; };
 		12745B5F26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745B5E26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift */; };
 		12745B6A26FBF6A6005687DF /* SimilarMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745B6926FBF6A5005687DF /* SimilarMovies.swift */; };
-		127F6B6126FCF4C20088642D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F6B6026FCF4C20088642D /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +56,6 @@
 		12745B5B26FB6513005687DF /* SimilarMoviesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimilarMoviesTableViewCell.xib; sourceTree = "<group>"; };
 		12745B5E26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMoviesTableCellViewModel.swift; sourceTree = "<group>"; };
 		12745B6926FBF6A5005687DF /* SimilarMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMovies.swift; sourceTree = "<group>"; };
-		127F6B6026FCF4C20088642D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +236,6 @@
 		12745B5826FB64D1005687DF /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				127F6B5F26FCF4B00088642D /* View */,
 				12745B5926FB64D9005687DF /* Cell */,
 			);
 			path = Components;
@@ -252,14 +249,6 @@
 				12745B5E26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		127F6B5F26FCF4B00088642D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				127F6B6026FCF4C20088642D /* GradientView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,7 +323,6 @@
 			files = (
 				126BCB0226F8DDB30039668A /* Endpoint.swift in Sources */,
 				12235BD426F8B42E00019FA7 /* DetailsViewController.swift in Sources */,
-				127F6B6126FCF4C20088642D /* GradientView.swift in Sources */,
 				12174DA526FA2EF4009F09AE /* DetailsViewModel.swift in Sources */,
 				126BCAFF26F8DD750039668A /* NetworkMethod.swift in Sources */,
 				126BCB0B26F8E2F90039668A /* MovieDetails.swift in Sources */,
