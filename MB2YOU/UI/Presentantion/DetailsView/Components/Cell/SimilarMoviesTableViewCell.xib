@@ -18,17 +18,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2NE-ZK-Scr">
-                        <rect key="frame" x="16" y="16" width="310" height="91"/>
+                        <rect key="frame" x="16" y="8" width="310" height="107"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sM0-Ab-1aF">
-                                <rect key="frame" x="0.0" y="3" width="64" height="85"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sM0-Ab-1aF">
+                                <rect key="frame" x="0.0" y="11" width="64" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="0as-X0-fEa"/>
                                     <constraint firstAttribute="height" constant="85" id="bP8-4X-FiY"/>
+                                    <constraint firstAttribute="width" secondItem="sM0-Ab-1aF" secondAttribute="height" multiplier="64:85" id="kNP-rl-YgH"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2b2-CD-HaD">
-                                <rect key="frame" x="74" y="15" width="236" height="61"/>
+                                <rect key="frame" x="74" y="23" width="236" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirates of the Caribbean: The Curse of the Black Pearl" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej9-RF-WBj" userLabel="Title">
                                         <rect key="frame" x="0.0" y="0.0" width="236" height="42.5"/>
@@ -63,9 +64,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="2NE-ZK-Scr" secondAttribute="bottom" constant="16" id="EkZ-Vn-Uyo"/>
+                    <constraint firstAttribute="bottom" secondItem="2NE-ZK-Scr" secondAttribute="bottom" constant="8" id="EkZ-Vn-Uyo"/>
                     <constraint firstItem="2NE-ZK-Scr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="QpO-Kp-B8n"/>
-                    <constraint firstItem="2NE-ZK-Scr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="aGL-wZ-hsN"/>
+                    <constraint firstItem="2NE-ZK-Scr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="aGL-wZ-hsN"/>
                     <constraint firstAttribute="trailing" secondItem="2NE-ZK-Scr" secondAttribute="trailing" constant="16" id="n5J-Sg-0lR"/>
                 </constraints>
             </tableViewCellContentView>

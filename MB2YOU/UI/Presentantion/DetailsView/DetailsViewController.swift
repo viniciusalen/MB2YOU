@@ -9,6 +9,12 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    //*************************************************
+    // MARK: - IBOutlets
+    //*************************************************
+    
+    @IBOutlet private weak var likeButton: UIButton!
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var titleMovieLabel: UILabel!
     @IBOutlet private weak var popularityLabel: UILabel!
     @IBOutlet private weak var likesLabel: UILabel!
@@ -20,11 +26,33 @@ class DetailsViewController: UIViewController {
     // MARK: - Private Prorperties
     //*************************************************
     
+    var tapped: Bool = false
     var viewModel: DetailsViewModel = DetailsViewModel()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.contentInsetAdjustmentBehavior = .never
         setupUI()
+    }
+}
+
+//*************************************************
+// MARK: - Actions
+//*************************************************
+
+extension DetailsViewController {
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        if !tapped {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            tapped = true
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            tapped = false
+        }
     }
 }
 
@@ -34,12 +62,33 @@ class DetailsViewController: UIViewController {
 
 extension DetailsViewController {
     private func setupUI() {
+        
+        self.showLoadingIndicator()
+        
+        let dispatchGroup: DispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
         self.viewModel.getDetails { error in
+            dispatchGroup.leave()
             if let error: Error = error {
-                self.presentAlert(title: "Erro", message: error.localizedDescription)
+                self.presentAlert(title: "Movie Details Error", message: error.localizedDescription)
             }
+        }
+        dispatchGroup.enter()
+        self.viewModel.getSimilarMovies { error in
+            dispatchGroup.leave()
+            if let error: Error = error {
+                self.presentAlert(title: "Similar Movies Error", message: error.localizedDescription)
+            }
+        }
+        
+        self.likeButton.setTitle("", for: .normal)
+        
+        dispatchGroup.notify(queue: .main) {
+            self.hideLoadingIndicator()
             self.setupUIData()
-            
+            self.similarTableView.layoutIfNeeded()
+            self.tableViewHeightConstraint.constant = CGFloat(self.viewModel.quantitySimilarMovies * 102)
         }
     }
     
@@ -56,7 +105,6 @@ extension DetailsViewController {
         else {
             self.imageMovie.image = UIImage(systemName: "film")!
         }
-        
         setupTable()
     }
     
@@ -65,38 +113,26 @@ extension DetailsViewController {
         
         similarTableView.register(UINib(nibName: "SimilarMoviesTableViewCell", bundle: nil), forCellReuseIdentifier: "SimilarMoviesTableViewCell")
         similarTableView.isScrollEnabled = false
-        similarTableView.rowHeight = UITableView.automaticDimension
     }
 }
 
+//*************************************************
+// MARK: - UITableViewDataSource
+//*************************************************
+
 extension DetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return viewModel.quantitySimilarMovies
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let similarMoviesTableViewCell: SimilarMoviesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SimilarMoviesTableViewCell", for: indexPath) as? SimilarMoviesTableViewCell else {
+        guard let similarMoviesTableViewCell: SimilarMoviesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "SimilarMoviesTableViewCell", for: indexPath) as? SimilarMoviesTableViewCell,
+              let similarMoviesTableCellViewModel: SimilarMoviesTableCellViewModel = viewModel.buildSimilarMoviesTableCellViewModel(index: indexPath)
+        else {
             return UITableViewCell()
         }
-        
-//        let iMEIScanCodeCellViewModel: IMEIScanCodeCellViewModel = IMEIScanCodeCellViewModel(imeiValue: viewModel.getIMEIAtIndex(indexPath.row), canEditIMEI: !viewModel.shouldDeleteImeis)
-//
-//        iMEIScanCodeCell.setup(viewModel: iMEIScanCodeCellViewModel)
-//
-//        iMEIScanCodeCell.onFinishImeiInput = { [weak self] imei in
-//            guard let self = self else { return }
-//
-//            self.viewModel.storeHexadecimal(imei, atIndex: indexPath.row)
-//            self.enableSaveButton()
-//        }
-//
-//        iMEIScanCodeCell.onStartScan = {
-//            self.coordinatorDelegate?.openScanCode(delegate: iMEIScanCodeCell)
-//        }
-        
+        similarMoviesTableViewCell.setup(viewModel: similarMoviesTableCellViewModel)
         return similarMoviesTableViewCell
     }
-    
-    
 }
 

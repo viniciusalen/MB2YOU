@@ -15,13 +15,14 @@ class DetailsViewModel {
     //*************************************************
     
     private let movieService: MovieServiceProtocol
+    let movieId: String = "455"
     
     //*************************************************
     // MARK: - Public Properties
     //*************************************************
     
     private(set) var detailsMovie: MovieDetails?
-    
+    private(set) var similarMovies: SimilarMovies?
     
     var backdropPath: String? {
         guard let path: String = detailsMovie?.backdropPath else {
@@ -60,6 +61,12 @@ class DetailsViewModel {
         }
     }
     
+    var quantitySimilarMovies: Int {
+        guard let quantity: Int = similarMovies?.similarMovies.count else {
+            return 0
+        }
+        return quantity
+    }
     
     //*************************************************
     // MARK: - Inits
@@ -75,8 +82,29 @@ class DetailsViewModel {
 //*************************************************
 
 extension DetailsViewModel {
+    
+    func buildSimilarMoviesTableCellViewModel(index: IndexPath) -> SimilarMoviesTableCellViewModel? {
+        guard let similarMovie: MovieDetails = similarMovies?.similarMovies[index.row] else {
+            return nil
+        }
+        return SimilarMoviesTableCellViewModel(similarMovie: similarMovie)
+        
+    }
+    
+    func getSimilarMovies(completion: @escaping(Error?) -> Void) {
+        movieService.getSimilarMovies(movieId: movieId) { result in
+            switch result {
+            case .success(let similarMovies):
+                self.similarMovies = similarMovies
+                completion(nil)
+            case .failure(let error):
+                return completion(error)
+            }
+        }
+    }
+    
     func getDetails(completion: @escaping(Error?) -> Void) {
-        movieService.getDetails(movieId: "451") { result in
+        movieService.getDetails(movieId: movieId) { result in
             switch result {
             case .success(let movieDetails):
                 self.detailsMovie = movieDetails

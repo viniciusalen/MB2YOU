@@ -7,6 +7,8 @@
 
 import UIKit
 
+fileprivate var aView: UIView?
+
 extension UIViewController {
     
     /// Creates and presents a UIAlertController on the screen
@@ -25,4 +27,22 @@ extension UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func showLoadingIndicator(){
+        aView = UIView(frame: self.view.bounds)
+        aView?.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        let ai = UIActivityIndicatorView(style: .large)
+        ai.center = aView!.center
+        ai.color = .white
+        ai.startAnimating()
+        aView?.addSubview(ai)
+        self.view.addSubview(aView!)
+    }
+    
+    func hideLoadingIndicator() {
+        aView?.removeFromSuperview()
+        aView = nil
+    }
+    
 }
