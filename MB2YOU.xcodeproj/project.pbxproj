@@ -30,6 +30,7 @@
 		12745B5D26FB6513005687DF /* SimilarMoviesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12745B5B26FB6513005687DF /* SimilarMoviesTableViewCell.xib */; };
 		12745B5F26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745B5E26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift */; };
 		12745B6A26FBF6A6005687DF /* SimilarMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745B6926FBF6A5005687DF /* SimilarMovies.swift */; };
+		128DA17F26FE293C00A103C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 128DA17E26FE293C00A103C7 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		12745B5B26FB6513005687DF /* SimilarMoviesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimilarMoviesTableViewCell.xib; sourceTree = "<group>"; };
 		12745B5E26FB6AF7005687DF /* SimilarMoviesTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMoviesTableCellViewModel.swift; sourceTree = "<group>"; };
 		12745B6926FBF6A5005687DF /* SimilarMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMovies.swift; sourceTree = "<group>"; };
+		128DA17E26FE293C00A103C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "../../../../../../../Downloads/desafio-mobile2you-main/README.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				12235BE426F8B8F100019FA7 /* Domain */,
 				12235BE326F8B8EA00019FA7 /* UI */,
 				12235BDD26F8B42F00019FA7 /* Info.plist */,
+				128DA17E26FE293C00A103C7 /* README.md */,
 			);
 			path = MB2YOU;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			files = (
 				12235BD926F8B42F00019FA7 /* Assets.xcassets in Resources */,
 				12235BD726F8B42E00019FA7 /* Main.storyboard in Resources */,
+				128DA17F26FE293C00A103C7 /* README.md in Resources */,
 				12745B5D26FB6513005687DF /* SimilarMoviesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
