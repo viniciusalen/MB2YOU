@@ -8,9 +8,11 @@
 import Foundation
 
 struct SimilarMovies: Decodable {
-    let similarMovies: [MovieDetails]
+    let similarMovies: [Results]
     
     enum CodingKeys: String, CodingKey {
         case similarMovies = "results"
     }
 }
+
+

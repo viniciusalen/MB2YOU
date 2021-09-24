@@ -15,31 +15,31 @@ class DetailsViewModel {
     //*************************************************
     
     private let movieService: MovieServiceProtocol
-    let movieId: String = "550"
+    private let movieId: String = "550"
     
     //*************************************************
     // MARK: - Public Properties
     //*************************************************
     
-    private(set) var detailsMovie: MovieDetails?
+    private(set) var movieDetails: MovieDetails?
     private(set) var similarMovies: SimilarMovies?
     
     var backdropPath: String? {
-        guard let path: String = detailsMovie?.backdropPath else {
+        guard let path: String = movieDetails?.backdropPath else {
             return nil
         }
         return path
     }
     
     var titleName: String? {
-        guard let name: String = detailsMovie?.originalTitle else {
+        guard let name: String = movieDetails?.originalTitle else {
             return nil
         }
         return name
     }
     
     var likes: String? {
-        guard let likesNumber: Int = detailsMovie?.voteCount else {
+        guard let likesNumber: Int = movieDetails?.voteCount else {
             return nil
         }
         if likesNumber > 1 {
@@ -50,7 +50,7 @@ class DetailsViewModel {
     }
     
     var popularity: String? {
-        guard let popularityNumber: Double = detailsMovie?.popularity else {
+        guard let popularityNumber: Double = movieDetails?.popularity else {
             return nil
         }
         
@@ -84,10 +84,10 @@ class DetailsViewModel {
 extension DetailsViewModel {
     
     func buildSimilarMoviesTableCellViewModel(index: IndexPath) -> SimilarMoviesTableCellViewModel? {
-        guard let similarMovie: MovieDetails = similarMovies?.similarMovies[index.row] else {
+        guard let result: Results = similarMovies?.similarMovies[index.row] else {
             return nil
         }
-        return SimilarMoviesTableCellViewModel(similarMovie: similarMovie)
+        return SimilarMoviesTableCellViewModel(result: result)
         
     }
     
@@ -107,7 +107,7 @@ extension DetailsViewModel {
         movieService.getDetails(movieId: movieId) { result in
             switch result {
             case .success(let movieDetails):
-                self.detailsMovie = movieDetails
+                self.movieDetails = movieDetails
                 completion(nil)
             case .failure(let error):
                 return completion(error)

@@ -13,53 +13,50 @@ class SimilarMoviesTableCellViewModel {
     //*************************************************
     // MARK: - Public Properties
     //*************************************************
-    
-    var similarMovie: MovieDetails
+
+    var result: Results
     
     var titleMovie: String {
-        return similarMovie.originalTitle
+        return result.originalTitle
     }
     
     var yearMovie: String {
-        let year = similarMovie.date
+        let year = result.date
         return getYearString(date: year)
     }
     
     var pathImageMovie: String? {
-        guard let path: String = similarMovie.backdropPath else {
+        guard let path: String = result.backdropPath else {
             return nil
         }
         return path
     }
     
     var genreMovie: String? {
-        guard let genre: Int = similarMovie.genres?.first else {
-            return nil
+        
+        let ids: [Int] = result.genreIds
+        
+        if ids.count > 2 {
+            return getGenreMovie(id: ids[0]) + ", " + getGenreMovie(id: ids[1])
+        } else {
+            return getGenreMovie(id: ids[0])
         }
-        return String(genre)
     }
-    
+
     //*************************************************
     // MARK: - Inits
     //*************************************************
     
-    init(similarMovie: MovieDetails) {
-        self.similarMovie = similarMovie
+    init(result: Results) {
+        self.result = result
     }
 }
 
 //*************************************************
-// MARK: - Private Methods
+// MARK: - Public Methods
 //*************************************************
 
 extension SimilarMoviesTableCellViewModel {
-    func getYearString(date: String) -> String {
-        let start = date.index(date.startIndex, offsetBy: 0)
-        let end = date.index(date.endIndex, offsetBy: -6)
-        let range = start..<end
-        return String(date[range])
-    }
-    
     func getImageByPath(path: String) -> UIImage {
         if let url = URL(string: "https://image.tmdb.org/t/p/original" + path) {
             do {
@@ -70,6 +67,65 @@ extension SimilarMoviesTableCellViewModel {
             }
         }
         return UIImage(systemName: "film")!
+    }
+}
+
+//*************************************************
+// MARK: - Private Methods
+//*************************************************
+
+extension SimilarMoviesTableCellViewModel {
+    
+    private func getYearString(date: String) -> String {
+        let start = date.index(date.startIndex, offsetBy: 0)
+        let end = date.index(date.endIndex, offsetBy: -6)
+        let range = start..<end
+        return String(date[range])
+    }
+    
+    private func getGenreMovie(id: Int) -> String {
+        switch id {
+        case 12:
+            return "Adventure"
+        case 28:
+            return "Action"
+        case 16:
+            return "Animation"
+        case 35:
+            return "Comedy"
+        case 80:
+            return "Crime"
+        case 99:
+            return "Documentary"
+        case 18:
+            return "Drama"
+        case 1075:
+            return "Family"
+        case 14:
+            return "Fantasy"
+        case 36:
+            return "History"
+        case 27:
+            return "Horror"
+        case 1042:
+            return "Music"
+        case 9648:
+            return "Mystery"
+        case 10749:
+            return "Romance"
+        case 878:
+            return "Science Fiction"
+        case 10770:
+            return "TV Movie"
+        case 53:
+            return "Thriller"
+        case 10752:
+            return "War"
+        case 37:
+            return "Western"
+        default:
+            return ""
+        }
     }
 }
 

@@ -29,6 +29,10 @@ class DetailsViewController: UIViewController {
     var tapped: Bool = false
     var viewModel: DetailsViewModel = DetailsViewModel()
     
+    //*************************************************
+    // MARK: - Life Cycle
+    //*************************************************
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -74,21 +78,21 @@ extension DetailsViewController {
                 self.presentAlert(title: "Movie Details Error", message: error.localizedDescription)
             }
         }
-        dispatchGroup.enter()
-        self.viewModel.getSimilarMovies { error in
-            dispatchGroup.leave()
-            if let error: Error = error {
-                self.presentAlert(title: "Similar Movies Error", message: error.localizedDescription)
-            }
-        }
         
         self.likeButton.setTitle("", for: .normal)
         
         dispatchGroup.notify(queue: .main) {
-            self.hideLoadingIndicator()
-            self.setupUIData()
-            self.similarTableView.layoutIfNeeded()
-            self.tableViewHeightConstraint.constant = CGFloat(self.viewModel.quantitySimilarMovies * 102)
+            
+            self.viewModel.getSimilarMovies { error in
+                if let error: Error = error {
+                    self.presentAlert(title: "Similar Movies Error", message: error.localizedDescription)
+                }
+                
+                self.hideLoadingIndicator()
+                self.setupUIData()
+                self.similarTableView.layoutIfNeeded()
+                self.tableViewHeightConstraint.constant = CGFloat(self.viewModel.quantitySimilarMovies * 102)
+            }
         }
     }
     
